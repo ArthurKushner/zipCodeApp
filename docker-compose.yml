@@ -1,0 +1,47 @@
+version: '2.1'
+services:
+  zipp-app:
+
+    image: lwieske/java-8 # creates container from image
+    depends_on: # starts current container only when containers listed below are already started
+     - mongo
+    restart: unless-stopped
+    volumes: # mount folder with application jar file to docker container
+      - ./application-service/build/libs:/tmp
+    ports: # allows external services to communicate with current container
+      - 8080:8080
+    networks: # network configuration for current container
+      app_net_dev:
+        ipv4_address: 172.16.238.10
+    entrypoint:
+     - "java"
+     - "-jar"
+     - "/tmp/application-service.jar"
+     - "--mongo.database.url=172.16.238.20:27017"
+
+
+
+
+  # Creates container for MongoDB
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    expose: # allows internal services in the same docker network to communicate with mongoDB
+      - 27017
+    networks: # network configuration for current container
+      app_net_dev:
+        ipv4_address: 172.16.238.20
+    volumes: #mount folder with db to mongo container
+          - ./mongoDB:/data/db
+
+
+
+# creates network for above containers
+networks:
+  app_net_dev:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+       - subnet: 172.16.238.0/24

@@ -1,0 +1,51 @@
+Configuration:
+ # status: info
+
+  Appenders:
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%highlight{%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n}"
+    RollingRandomAccessFile:
+      - name: APPLICATION
+        fileName: build/logs/application.log
+        filePattern: "build/logs/$${date:yyyy-MM}/application-%d{MM-dd-yyyy}-%i.log.gz"
+        PatternLayout:
+          Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 25 MB
+
+  Loggers:
+
+    Root:
+      level: info
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: APPLICATION
+
+    Logger:
+      - name: org.springframework
+        level: warn
+        AppenderRef:
+          - ref: APPLICATION
+            level: debug
+
+    Logger:
+      - name: org.ehcache.core
+        level: warn
+        AppenderRef:
+          - ref: APPLICATION
+          - ref: CONSOLE
+
+    Logger:
+      - name: org.hibernate
+        level: debug
+        AppenderRef:
+          - ref: APPLICATION
+          - ref: CONSOLE
+            level: debug
+
+    Logger:
+      - name: by.stail      level: info

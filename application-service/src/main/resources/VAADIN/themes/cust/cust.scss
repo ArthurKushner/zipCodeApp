@@ -1,0 +1,110 @@
+@import "../valo/valo";
+
+
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height/2;
+}
+
+
+@mixin cust {
+  @include valo;
+
+
+
+  .v-slot.v-slot-v-top-line{
+    background: black;
+  }
+
+  .v-slot.v-slot-v-bottom-line{
+    background: black;
+  }
+
+  .v-top-line.v-verticallayout-v-top-line{
+    padding-left: 1%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .v-vertical > .v-expand > .v-spacing{
+    height: 1px;
+  }
+
+  .v-slot.v-slot-v-login-form {
+    margin-top: 1.5px;
+    background-image: url("images/background_2.jpg");
+    background-size: cover;
+    background-position: left center;
+  }
+
+
+
+
+  #login-panel .v-panel-caption{
+    background: #342b2b;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 1.4em;
+    line-height: 2.8em;
+    text-align: center;
+
+  }
+
+
+  #login-panel {
+    background-color: gainsboro;
+  }
+
+  #username.v-textfield{
+    width: 100%;
+    text-align: center;
+  }
+
+  #password.v-textfield{
+    width: 100%;
+    text-align: center;
+  }
+
+  .v-widget.v-has-caption.v-caption-on-top{
+    width: 100%;
+    font-weight: 700;
+    font-size: .8em;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 2em;
+  }
+
+  #gwt-uid-2.v-caption{
+    text-align: center;
+  }
+
+  #gwt-uid-4.v-caption{
+    text-align: center;
+  }
+
+  #login-panel .v-button{
+
+    border-radius: 2px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    background: #342b2b;
+    cursor: pointer;
+    width: 100%;
+  }
+
+
+
+
+
+
+
+
+
+}

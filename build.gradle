@@ -1,0 +1,28 @@
+allprojects {
+	buildscript {
+		repositories {
+			jcenter()
+		}
+	}
+}
+
+def rootDir = buildscript.sourceFile.parentFile
+
+apply from: "$rootDir/gradle/idea.gradle"
+
+// artifact-related group and version properties
+group 'by-stail'
+version '1.0-SNAPSHOT'
+
+subprojects {
+
+	apply from: "$rootDir/gradle/versions.gradle"
+	apply from: "$rootDir/gradle/java.gradle"
+
+	// configure repositories
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		jcenter()
+	}
+}

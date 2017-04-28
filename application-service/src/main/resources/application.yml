@@ -1,0 +1,5 @@
+vaadin:
+  servlet:
+    productionMode: false
+    heartbeatInterval: 60
+    closeIdleSessions: true

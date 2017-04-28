@@ -1,0 +1,42 @@
+// configure dependencies
+dependencies {
+
+
+
+    // system libraries (that's not contained in Maven repositories)
+    // DEPRECATED: just try to avoid that old-school style and do a lookup in Maven Central
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+
+    // define general compatibility with Java EE specification (DI, JPA, Servlets API aso.)
+    compile 'javax.inject:javax.inject:1'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.enterprise:cdi-api:1.1'
+
+//    // spring dependencies
+    compile("org.springframework:spring-core:$springVersion")
+    compile("org.springframework:spring-context:$springVersion")
+    compile("org.springframework:spring-context-support:$springVersion")
+    compile("org.springframework:spring-beans:$springVersion")
+    compile("org.springframework.data:spring-data-mongodb:$springMongoDbVersion")
+   // compile("org.springframework.data:spring-data-mongodb-parent$springMongoDbVersion")
+
+
+    compile("org.springframework:spring-orm:$springVersion")
+    compile("org.springframework:spring-oxm:$springVersion")
+
+
+
+
+
+
+
+
+
+}
+
+
+
+// delegate system properties to gradle test task
+test {
+    systemProperties = System.properties
+}

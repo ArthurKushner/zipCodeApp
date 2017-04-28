@@ -1,0 +1,19 @@
+/**
+ * Defines general configuration for all java-based projects.
+ */
+
+// define java 8 as a source and target versions
+apply plugin: 'java'
+compileJava {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+    options.encoding = 'UTF-8'
+}
+
+
+dependencies {
+
+    // testing
+    compile("org.springframework:spring-test:$springVersion")
+    testCompile("junit:junit:$junitVersion")
+}

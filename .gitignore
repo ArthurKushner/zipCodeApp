@@ -1,0 +1,64 @@
+.gradle
+/build/
+gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wraper.properties
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+!.idea/codeStyleSettings.xml
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+# common ignore
+*~
+MANIFEST.MF
+target/
+tmp/
+install/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# unix specific
+.DS_Store
+.directory
+
+# static plugins
+.pmd
+
+# log files
+*.log
+*.csv
+*.txt
+
+
+# explicit ehcache working directories exclusion
+/cache
+
+

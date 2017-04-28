@@ -1,0 +1,9 @@
+apply from: "$rootProject.rootDir/gradle/webapp.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}

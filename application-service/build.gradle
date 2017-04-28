@@ -1,0 +1,38 @@
+buildscript {
+	repositories {
+
+
+		mavenCentral()
+
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+
+
+dependencies {
+
+	compile project(':data-service')
+
+
+	// system libraries (that's not contained in Maven repositories)
+	// DEPRECATED: just try to avoid that old-school style and do a lookup in Maven Central
+	compile fileTree(dir: "$rootDir/lib", include: ['*.jar'])
+
+
+	compile('com.vaadin:vaadin-spring-boot-starter')
+	compile ('com.vaadin:vaadin-sass-compiler:0.9.13')
+	compile 'javax.inject:javax.inject:1'
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.vaadin:vaadin-bom:8.0.5"
+	}
+}

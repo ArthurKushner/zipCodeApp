@@ -1,0 +1,4 @@
+@import "cust";
+.cust {
+  @include cust;
+}

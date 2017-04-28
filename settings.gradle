@@ -1,0 +1,4 @@
+rootProject.name = 'zip-code-app'
+include 'application-service'
+include 'data-service'
+
