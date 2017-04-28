@@ -4,9 +4,11 @@ import by.stail.application.scss.IdSelector;
 import by.stail.application.viewes.MainView;
 import by.stail.data.entities.User;
 import by.stail.data.services.UserService;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -64,6 +66,7 @@ public class LoginPanel extends VerticalLayout {
 
         // general css styling
         loginPanel.setCaption(LOGIN_FORM_CAPTION);
+        loginPanel.setIcon(VaadinIcons.USER);
         loginPanel.setId(IdSelector.LOGIN_PANEL);
         loginPanel.setWidth(400, Unit.PIXELS);
         loginPanel.setHeight(350, Unit.PIXELS);
@@ -113,8 +116,10 @@ public class LoginPanel extends VerticalLayout {
             Notification.show(greeting.toString(), Notification.Type.HUMANIZED_MESSAGE);
         } else {
 
-            Notification.show("Try to login with following credentials:\n\n user - 'admin',\n password - 'admin'.", Notification.Type.ERROR_MESSAGE);
-
+            String message = "Try to login with following credentials:\n\n user - 'admin',\n\n password - 'admin'.";
+            Notification notification = new Notification(message);
+            notification.setStyleName(ValoTheme.NOTIFICATION_SYSTEM);
+            notification.show(getUI().getPage());
         }
 
 
