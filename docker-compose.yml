@@ -32,7 +32,7 @@ services:
       app_net_dev:
         ipv4_address: 172.16.238.20
     volumes: #mount folder with db to mongo container
-          - ./mongoDB:/data/db
+    - ./mongoDB:/data/db
 
 
 
