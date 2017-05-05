@@ -1,8 +1,6 @@
 .gradle
 /build/
-gradle/wrapper/gradle-wrapper.properties
-!gradle/wrapper/gradle-wrapper.jar
-!gradle/wrapper/gradle-wraper.properties
+
 
 ### STS ###
 .apt_generated
@@ -38,7 +36,7 @@ install/
 *.class
 
 # Package Files #
-*.jar
+
 *.war
 
 
